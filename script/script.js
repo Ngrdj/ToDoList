@@ -15,12 +15,21 @@ document.addEventListener("keydown", event => {
 
 function createToDo() {
     if(toDoInput.value === ""){
-        alert("veuillez entrer une tâche à réaliser")
+        alert("Veuillez entrer une tâche à réaliser")
     }
     else{
-        const item = document.createElement("li");
-        item.innerHTML = toDoInput.value;
+        const newItem = document.createElement("li");
         
-        toDoList.appendChild(item);
+        const newCheckBox = document.createElement("input");
+        newCheckBox.setAttribute("type", "checkbox");
+        
+        const newLabel = document.createElement("label");
+        const newDeleteButton = document.createElement("button");
+        newDeleteButton.setAttribute("class", "delete");
+        
+        toDoList.appendChild(newItem);
+        newItem.append(newCheckBox, newLabel, newDeleteButton);
+        newLabel.innerHTML = toDoInput.value;
+        
     }
 }
